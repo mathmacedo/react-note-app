@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+import PropTypes from "prop-types";
+
+import Screen from "./components/Screen/Screen";
 
 class App extends React.Component {
 	constructor(props) {
@@ -11,10 +14,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Ola</h1>
+				<Screen></Screen>
 			</div>
 		);
 	}
 }
+
+App.propTypes = {};
 
 export default App;
