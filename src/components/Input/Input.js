@@ -24,9 +24,9 @@ class Input extends React.Component {
 				<div
 					style={{
 						flex: "1",
-						height: "80%",
-						margin: "10px auto",
-						width: "90%"
+						height: "85%",
+						margin: "20px auto",
+						width: "95%"
 					}}
 				>
 					<textarea
@@ -41,7 +41,7 @@ class Input extends React.Component {
 					style={{
 						display: "flex",
 						flexDirection: "column",
-						height: "20%",
+						height: "15%",
 						justifyContent: "center",
 						margin: "0 auto",
 						width: "90%"
