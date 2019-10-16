@@ -2,8 +2,6 @@ import React from "react";
 import "./Note.css";
 import PropTypes from "prop-types";
 
-import Input from "../Input/Input";
-
 class Note extends React.Component {
 	constructor(props) {
 		super(props);
@@ -19,11 +17,23 @@ class Note extends React.Component {
 					display: "flex",
 					flexDirection: "column",
 					height: "200px",
-					margin: "0 auto",
+					margin: "20px auto",
 					maxWidth: "80%"
 				}}
 			>
-				<textarea>{this.props.text}</textarea>
+				<div
+					style={{
+						flex: "1",
+						height: "85%",
+						margin: "20px auto",
+						width: "95%"
+					}}
+				>
+					<textarea
+						style={{ height: "100%", width: "100%" }}
+						defaultValue={this.props.text}
+					></textarea>
+				</div>
 			</section>
 		);
 	}

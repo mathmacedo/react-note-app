@@ -18,7 +18,12 @@ class Screen extends React.Component {
 	 * @return {Object} Retorna os componentes montado
 	 */
 	createNoteComponent() {
-		var componentes = <Note text={"Texto"}></Note>;
+		var componentes = [];
+		for (var i = 0; i <= 10; i++) {
+			var html = <Note text={"Texto" + i} key={"teste" + i}></Note>;
+			componentes.push(html);
+		}
+
 		return componentes;
 	}
 
@@ -30,6 +35,7 @@ class Screen extends React.Component {
 					<Input></Input>
 				</section>
 				<section style={{ padding: "20px 0" }}>
+					<h2 style={{ textAlign: "center" }}>Notes</h2>
 					{this.createNoteComponent()}
 				</section>
 			</div>
