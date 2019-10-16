@@ -13,7 +13,8 @@ class Note extends React.Component {
 		return (
 			<section
 				style={{
-					border: "1px solid black",
+					border: "2px solid #9589d8",
+					borderRadius: "15px",
 					display: "flex",
 					flexDirection: "column",
 					height: "200px",
@@ -33,6 +34,34 @@ class Note extends React.Component {
 						style={{ height: "100%", width: "100%" }}
 						defaultValue={this.props.text}
 					></textarea>
+				</div>
+				<div style={{ margin: "5px auto" }}>
+					<button
+						style={{
+							background: "none",
+							border: "none",
+							cursor: "pointer",
+							padding: "0 10px"
+						}}
+					>
+						<img
+							alt="icon trash"
+							src="https://img.icons8.com/windows/20/000000/trash.png"
+						/>
+					</button>
+					<button
+						style={{
+							background: "none",
+							border: "none",
+							cursor: "pointer",
+							padding: "0 10px"
+						}}
+					>
+						<img
+							alt="icon edit"
+							src="https://img.icons8.com/wired/20/000000/edit-column.png"
+						/>
+					</button>
 				</div>
 			</section>
 		);
