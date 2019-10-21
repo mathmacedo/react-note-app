@@ -6,7 +6,44 @@ class Input extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			noteText: ""
+		};
+
+		// bind functions
+		this.chageNoteTextState = this.chageNoteTextState.bind(this);
+		this.saveNote = this.saveNote.bind(this);
+	}
+
+	/**
+	 * Método para salvar note no localStorage
+	 * @method saveNote
+	 * @return
+	 */
+	saveNote() {
+		var notes = JSON.parse(localStorage.getItem("notes") || "[]");
+		notes.push(this.state.noteText);
+		localStorage.setItem("notes", JSON.stringify(notes));
+		this.setState(
+			{
+				noteText: ""
+			},
+			() => {
+				this.props.changeNotesState(notes);
+			}
+		);
+	}
+
+	/**
+	 * Método para mudar state noteText a cada mudança
+	 * @method chageNoteTextState
+	 * @param {Object} evt event object
+	 * @return
+	 */
+	chageNoteTextState(evt) {
+		this.setState({
+			noteText: evt.target.value
+		});
 	}
 
 	render() {
@@ -30,11 +67,13 @@ class Input extends React.Component {
 					}}
 				>
 					<textarea
+						onChange={this.chageNoteTextState}
 						style={{
 							boxSizing: "border-box",
 							height: "100%",
 							width: "100%"
 						}}
+						value={this.state.noteText}
 					></textarea>
 				</div>
 				<section
@@ -60,6 +99,7 @@ class Input extends React.Component {
 								borderRadius: "10px",
 								backgroundColor: "#90cec2"
 							}}
+							onClick={this.saveNote}
 						>
 							Criar
 						</button>
@@ -70,6 +110,8 @@ class Input extends React.Component {
 	}
 }
 
-Input.propTypes = {};
+Input.propTypes = {
+	changeNotesState: PropTypes.func.isRequired
+};
 
 export default Input;
